@@ -52,8 +52,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show($id)
     {
+        $product = Product::find($id);
          return response()->json(['data' => $product]);
 
     }

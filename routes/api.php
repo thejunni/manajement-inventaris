@@ -25,36 +25,40 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::prefix('product')->group(function(){
     Route::get('/',[ProductController::class, 'index']);
-    // Route::get('/all',[ProductController::class, 'show']);
-    Route::post('/create',[ProductController::class, 'store']);
-    Route::put('/edit/{id}',[ProductController::class, 'update']);
-    Route::delete('/delete/{id}',[ProductController::class, 'destroy']);
+    Route::get('/{id}',[ProductController::class, 'show']);
+    Route::post('/',[ProductController::class, 'store']);
+    Route::put('/{id}',[ProductController::class, 'update']);
+    Route::delete('/{id}',[ProductController::class, 'destroy']);
 });
 
 Route::prefix('transaksi')->group(function(){
     Route::get('/', [TransactionController::class, 'index']);
-    Route::post('/create', [TransactionController::class, 'store']);
-    Route::put('/edit/{id}', [TransactionController::class, 'update']);
-    Route::delete('/delete/{id}', [TransactionController::class, 'destroy']);
+    Route::get('/{id}',[TransactionController::class, 'show']);
+    Route::post('/', [TransactionController::class, 'store']);
+    Route::put('/{id}', [TransactionController::class, 'update']);
+    Route::delete('/{id}', [TransactionController::class, 'destroy']);
 });
 
 Route::prefix('order')->group(function(){
     Route::get('/', [OrderController::class, 'index']);
-    Route::post('/create', [OrderController::class, 'store']);
-    Route::put('/edit/{id}', [OrderController::class, 'update']);
-    Route::delete('/delete/{id}', [OrderController::class, 'destroy']);
+    Route::get('/{id}', [OrderController::class,'show']);
+    Route::post('/', [OrderController::class, 'store']);
+    Route::put('/{id}', [OrderController::class, 'update']);
+    Route::delete('/{id}', [OrderController::class, 'destroy']);
 });
 
 Route::prefix('noti')->group(function(){
     Route::get('/',[NotificationController::class, 'index']);
-    Route::put('/edit/{id}',[NotificationController::class, 'update']);
-    Route::post('/create',[NotificationController::class, 'store']);
-    Route::delete('/delete/{id}',[NotificationController::class, 'destroy']);
+    Route::get('/{id}',[NotificationController::class, 'show']);
+    Route::put('/{id}',[NotificationController::class, 'update']);
+    Route::post('/',[NotificationController::class, 'store']);
+    Route::delete('/{id}',[NotificationController::class, 'destroy']);
 });
 
 Route::prefix('users')->group(function(){
     Route::get('/',[UserController::class,'index']);
-    Route::put('/edit/{id}',[UserController::class, 'update']);
-    Route::post('/create',[UserController::class, 'store']);
-    Route::delete('/delete/{id}',[UserController::class, 'destroy']);
+    Route::get('/{id}',[UserController::class, 'show']);
+    Route::put('/{id}',[UserController::class, 'update']);
+    Route::post('/',[UserController::class, 'store']);
+    Route::delete('/{id}',[UserController::class, 'destroy']);
 });
